@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["echo", "Docker build successful"]
+CMD ["sleep", "3600"]
