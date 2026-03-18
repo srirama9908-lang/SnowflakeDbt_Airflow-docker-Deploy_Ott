@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "[python]": {
+    "defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe"
+  },
+  "dbt.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe"
+}
