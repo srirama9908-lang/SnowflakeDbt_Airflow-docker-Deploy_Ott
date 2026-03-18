@@ -21,7 +21,7 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Push Docker image
       run: |
-        docker tag my-app ${{ srinivasa594 }}/my-app:latest
-        docker push ${{Srinu@199234}}/my-app:latest
+        docker tag my-app ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
     - name: Test
       run: echo "CI running successfully"
