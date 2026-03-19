@@ -1,11 +1,9 @@
 FROM apache/airflow:2.9.0
 
-# install as root (required by airflow image design)
-USER root
-
+# copy first
 COPY requirements.txt /requirements.txt
 
-RUN pip install --no-cache-dir -r /requirements.txt
-
-# switch back
+# install as airflow user (required)
 USER airflow
+
+RUN pip install --no-cache-dir -r /requirements.txt
