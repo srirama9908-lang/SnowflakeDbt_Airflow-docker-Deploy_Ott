@@ -1,13 +1,8 @@
 FROM apache/airflow:2.9.0
 
-USER root
-
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
+# switch to airflow user BEFORE pip install
 USER airflow
 
-ENTRYPOINT ["/entrypoint.sh"]
+COPY requirements.txt /requirements.txt
+
+RUN pip install --no-cache-dir -r /requirements.txt
