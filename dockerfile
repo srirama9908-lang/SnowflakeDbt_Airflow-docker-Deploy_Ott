@@ -1,11 +1,13 @@
-FROM python:3.11
+FROM apache/airflow:2.9.0
 
-WORKDIR /app
+USER root
 
-COPY requirements.txt .
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
 
-RUN pip install -r requirements.txt
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-COPY . .
+USER airflow
 
-CMD ["sleep", "3600"]
+ENTRYPOINT ["/entrypoint.sh"]
