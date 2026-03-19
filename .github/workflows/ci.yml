@@ -16,7 +16,11 @@ jobs:
       run: pip install -r requirements.txt
     
     - name: Build Docker image
-      run: docker build -t my-app .
+      run: docker build --no-cache -t my-app .
+
+    - name: Verify Airflow installed
+      run: docker run my-app airflow version
+      
     - name: Login to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Push Docker image
