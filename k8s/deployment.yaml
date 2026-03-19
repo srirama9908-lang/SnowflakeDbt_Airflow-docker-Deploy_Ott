@@ -13,7 +13,8 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-app
-        image: srinivasa594/my-app:latest
-        ports:
-        - containerPort: 80
+       - name: my-app
+         image: srinivasa594/my-app:latest
+         imagePullPolicy: Always
+         ports:
+           - containerPort: 80
